@@ -5,7 +5,6 @@ import com.sneakerhead.backend.dto.response.TaskResponse;
 import com.sneakerhead.backend.entity.Project;
 import com.sneakerhead.backend.entity.Task;
 import com.sneakerhead.backend.entity.User;
-import com.sneakerhead.backend.exception.BadRequestException;
 import com.sneakerhead.backend.exception.ResourceNotFoundException;
 import com.sneakerhead.backend.repository.ProjectRepository;
 import com.sneakerhead.backend.repository.TaskRepository;

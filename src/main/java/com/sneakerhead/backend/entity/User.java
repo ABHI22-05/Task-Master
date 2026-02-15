@@ -43,9 +43,11 @@ public class User {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
+    @Builder.Default
     private Role role = Role.USER;
 
     @Column(nullable = false)
+    @Builder.Default
     private Boolean active = true;
 
     @CreationTimestamp
@@ -57,12 +59,15 @@ public class User {
     private LocalDateTime updatedAt;
 
     @ManyToMany(mappedBy = "members", fetch = FetchType.LAZY)
+    @Builder.Default
     private Set<Team> teams = new HashSet<>();
 
     @OneToMany(mappedBy = "assignee", fetch = FetchType.LAZY)
+    @Builder.Default
     private Set<Task> assignedTasks = new HashSet<>();
 
     @OneToMany(mappedBy = "creator", fetch = FetchType.LAZY)
+    @Builder.Default
     private Set<Task> createdTasks = new HashSet<>();
 
     public enum Role {

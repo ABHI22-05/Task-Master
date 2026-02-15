@@ -36,9 +36,11 @@ public class Project {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
+    @Builder.Default
     private Status status = Status.ACTIVE;
 
     @OneToMany(mappedBy = "project", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Builder.Default
     private Set<Task> tasks = new HashSet<>();
 
     @Column(name = "start_date")

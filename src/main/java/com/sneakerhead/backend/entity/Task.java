@@ -44,10 +44,12 @@ public class Task {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
+    @Builder.Default
     private Status status = Status.OPEN;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
+    @Builder.Default
     private Priority priority = Priority.MEDIUM;
 
     @Column(name = "due_date")
@@ -57,9 +59,11 @@ public class Task {
     private LocalDateTime completedAt;
 
     @OneToMany(mappedBy = "task", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Builder.Default
     private Set<Comment> comments = new HashSet<>();
 
     @OneToMany(mappedBy = "task", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Builder.Default
     private Set<Attachment> attachments = new HashSet<>();
 
     @CreationTimestamp
