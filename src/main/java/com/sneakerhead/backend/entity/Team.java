@@ -36,12 +36,15 @@ public class Team {
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "team_members", joinColumns = @JoinColumn(name = "team_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
+    @Builder.Default
     private Set<User> members = new HashSet<>();
 
     @OneToMany(mappedBy = "team", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Builder.Default
     private Set<Project> projects = new HashSet<>();
 
     @Column(nullable = false)
+    @Builder.Default
     private Boolean active = true;
 
     @CreationTimestamp
